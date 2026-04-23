@@ -8,7 +8,7 @@ compile: clean
 
 sim: clean
 	$(TOOLCMD) -s $(DAY)_tb $(DAY).sv $(DAY)_tb.sv
-	/usr/local/bin/vvp ./sim.vvp
+	/usr/bin/vvp ./sim.vvp
 	gtkwave $(DAY).vcd -r ../gtkwaverc &
 
 build: clean
