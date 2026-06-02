@@ -1,0 +1,16 @@
+DAY  = fork_jn_none
+TIME = $$(date +'%Y%m%d-%H%M%S')
+
+TOOLCMD = iverilog -o sim.vvp -Wall -Winfloop -Wno-timescale -gno-shared-loop-index -g2012
+
+compile: clean
+	$(TOOLCMD) -s $(DAY) $(DAY).sv
+
+sim: clean
+	$(TOOLCMD)  $(DAY).sv 
+	/usr/bin/vvp ./sim.vvp
+	gtkwave $(DAY).vcd -r ../gtkwaverc &
+
+
+clean:
+	rm -rf sim.vvp synth.ys synth.v $(DAY).dot $(DAY).dot.pid $(DAY).vcd
