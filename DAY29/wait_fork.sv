@@ -9,7 +9,7 @@ module wait_fork();
         for (int i=0; i<8; i++) begin
           fork
             begin
-              print();
+              print(i);
             end
           join_none
         end
@@ -19,11 +19,11 @@ module wait_fork();
     $display("****After wait work*****");
   end
       
-  task print();
+  task print(input int a);
 	automatic int rand_delay;
     rand_delay = $urandom_range(1, 10);
     #rand_delay;
-    $display("%t Thread finished", $time);
+    $display("%t Thread[%0d] finished", $time,a);
   endtask
   
   
