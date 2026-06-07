@@ -1,0 +1,7 @@
+Test                  Environment
+├─ drv_mx = new()
+└─ env.drv.drv_mx ← (pass reference) ← Driver
+└─ env.sb.drv_mx  ← (pass reference) ← Scoreboard gets inputs
+
+env.sb_mx (created here, used internally)
+├─ Monitor ──put──→ sb_mx ──get──→ Scoreboard
